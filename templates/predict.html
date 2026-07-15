@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Predict Student Performance</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<<body class="predict-page">
+
+<div class="container">
+
+    <h1>Student Performance Predictor</h1>
+
+    <form action="/predict" method="POST">
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="step active">
+
+        <h2>Student Information</h2>
+
+        <label>School</label>
+        <select name="school">
+            <option value="GP">GP</option>
+            <option value="MS">MS</option>
+        </select>
+
+        <label>Sex</label>
+        <select name="sex">
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+        </select>
+
+        <label>Age</label>
+        <input
+            type="number"
+            name="age"
+            min="15"
+            max="22"
+            required>
+
+        <label>Address</label>
+        <select name="address">
+            <option value="U">Urban</option>
+            <option value="R">Rural</option>
+        </select>
+
+        <div class="step-buttons">
+            <button type="button" onclick="nextStep()">
+            Next →
+            </button>
+        </div>
+
+        </div>
+
+        <hr>
+
+<div class="step">
+
+<h2>Family Information</h2>
+
+<label>Mother's Job</label>
+<select name="Mjob">
+    <option value="teacher">Teacher</option>
+    <option value="health">Health</option>
+    <option value="services">Services</option>
+    <option value="at_home">At Home</option>
+    <option value="other">Other</option>
+</select>
+
+<label>Father's Job</label>
+<select name="Fjob">
+    <option value="teacher">Teacher</option>
+    <option value="health">Health</option>
+    <option value="services">Services</option>
+    <option value="at_home">At Home</option>
+    <option value="other">Other</option>
+</select>
+
+<label>Reason for Choosing School</label>
+<select name="reason">
+    <option value="course">Course</option>
+    <option value="home">Home</option>
+    <option value="reputation">Reputation</option>
+    <option value="other">Other</option>
+</select>
+
+<label>Guardian</label>
+<select name="guardian">
+    <option value="mother">Mother</option>
+    <option value="father">Father</option>
+    <option value="other">Other</option>
+</select>
+
+<div class="step-buttons">
+
+    <button type="button" onclick="previousStep()">
+        ← Previous
+    </button>
+
+    <button type="button" onclick="nextStep()">
+        Next →
+    </button>
+
+</div>
+
+</div>
+<hr>
+
+<div class="step">
+<h2>Academic Information</h2>
+
+<label>Travel Time</label>
+<input type="number" name="traveltime" min="1" max="4" required>
+
+<label>Study Time</label>
+<input type="number" name="studytime" min="1" max="4" required>
+
+<label>Failures</label>
+<input type="number" name="failures" min="0" max="4" required>
+
+<label>School Support</label>
+<select name="schoolsup">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+
+<label>Family Support</label>
+<select name="famsup">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+
+<label>Paid Classes</label>
+<select name="paid">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+
+<label>Extra Activities</label>
+<select name="activities">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+
+<label>Attended Nursery</label>
+<select name="nursery">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+
+<label>Wants Higher Education</label>
+<select name="higher">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+
+<label>Internet Access</label>
+<select name="internet">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+</select>
+
+<div class="step-buttons">
+
+    <button type="button" onclick="previousStep()">
+        ← Previous
+    </button>
+
+    <button type="button" onclick="nextStep()">
+        Next →
+    </button>
+
+</div>
+
+</div>
+
+<hr>
+
+<div class="step">
+
+<h2>Lifestyle Information</h2>
+
+<label>Family Relationship</label>
+<input type="number" name="famrel" min="1" max="5" required>
+
+<label>Free Time</label>
+<input type="number" name="freetime" min="1" max="5" required>
+
+<label>Going Out</label>
+<input type="number" name="goout" min="1" max="5" required>
+
+<label>Weekday Alcohol Consumption</label>
+<input type="number" name="Dalc" min="1" max="5" required>
+
+<label>Weekend Alcohol Consumption</label>
+<input type="number" name="Walc" min="1" max="5" required>
+
+<label>Health Status</label>
+<input type="number" name="health" min="1" max="5" required>
+
+<label>Absences</label>
+<input type="number" name="absences" min="0" required>
+
+<h2>Previous Grades</h2>
+
+<label>G1</label>
+<input type="number" name="G1" min="0" max="20" required>
+
+<label>G2</label>
+<input type="number" name="G2" min="0" max="20" required>
+
+<div class="step-buttons">
+
+    <button type="button" onclick="previousStep()">
+        ← Previous
+    </button>
+
+    <button type="submit">
+        🚀 Predict Final Grade
+    </button>
+
+</div>
+
+</div>
+
+<hr>
+
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+
+</html>

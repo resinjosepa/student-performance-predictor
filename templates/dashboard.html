@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="dashboard-page">
+
+<div class="container">
+
+<h1>Dashboard</h1>
+
+<p style="text-align:center;">
+Welcome to Student Performance Predictor
+</p>
+
+<br>
+
+<button onclick="window.location.href='/predict'">
+Predict Student Performance
+</button>
+
+<br><br>
+
+<button onclick="window.location.href='/history'">
+Prediction History
+</button>
+
+<br><br>
+
+<button onclick="window.location.href='/logout'">
+Logout
+</button>
+
+</div>
+
+</body>
+
+</html>
