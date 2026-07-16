@@ -18,15 +18,62 @@
 
 <body class="result-page">
 
-<div class="container">
+<div class="result-card">
 
-    <h1>Prediction Result</h1>
+    <h3>Predicted Final Grade</h3>
 
-    <h2 style="text-align:center;">
-        Predicted G3 : {{ prediction }}
-    </h2>
+    <div class="grade-box">
+        {{ prediction }} / 20
+    </div>
+
+    {% if prediction >= 16 %}
+        <div class="performance excellent">
+            🟢 Excellent
+        </div>
+
+    {% elif prediction >= 14 %}
+        <div class="performance good">
+            🔵 Good
+        </div>
+
+    {% elif prediction >= 10 %}
+        <div class="performance average">
+            🟡 Average
+        </div>
+
+    {% else %}
+        <div class="performance poor">
+            🔴 Needs Improvement
+        </div>
+    {% endif %}
+
+    <div class="suggestion">
+
+        <h3>Suggestion</h3>
+
+        {% if prediction >= 16 %}
+            <p>Excellent work! Keep maintaining your current study habits.</p>
+
+        {% elif prediction >= 14 %}
+            <p>Good performance. A little more consistency can help you achieve excellent results.</p>
+
+        {% elif prediction >= 10 %}
+            <p>Increase your study time and reduce absences to improve your final grade.</p>
+
+        {% else %}
+            <p>Focus on regular study, class attendance, and seek guidance from your teachers.</p>
+
+        {% endif %}
+
+    </div>
 
     <br>
+
+    <button onclick="window.location.href='/predict'">
+        Predict Again
+    </button>
+
+    <br><br>
 
     <button onclick="window.location.href='/dashboard'">
         Back to Dashboard

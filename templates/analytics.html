@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Analytics</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="dashboard-page">
+
+<div class="analytics-container">
+
+<h1>Analytics Dashboard</h1>
+
+<h2>Model Insights</h2>
+
+<div class="analytics-grid">
+
+    <div class="chart-card">
+        <h2>Feature Importance</h2>
+
+        <img src="{{ url_for('static', filename='charts/feature_importance.png') }}"
+             class="chart-image"
+             alt="Feature Importance">
+    </div>
+
+    <div class="chart-card">
+        <h2>Grade Distribution</h2>
+
+        <img src="{{ url_for('static', filename='charts/grade_distribution.png') }}"
+             class="chart-image"
+             alt="Grade Distribution">
+    </div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

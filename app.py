@@ -160,6 +160,9 @@ def history():
 @app.route("/logout")
 def logout():
     return render_template("login.html")
+@app.route("/analytics")
+def analytics():
+    return render_template("analytics.html")
 # Run Flask
 if __name__ == "__main__":
     app.run(debug=True)
